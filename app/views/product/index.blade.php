@@ -28,7 +28,7 @@
             <td>{{$pr->name}}</td>
             <td>{{$pr->price}}</td>
             <td>
-                <img src="http://localhost/base_mvc/{{$pr->img_thumbnail}}" alt="Ảnh sản phẩm" width="100">
+                <img src="http://localhost/PHP2/base_mvc%20(1)/{{$pr->img_thumbnail}}" alt="Ảnh sản phẩm" width="100">
                 
             </td>
 

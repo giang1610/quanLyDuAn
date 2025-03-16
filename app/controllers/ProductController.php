@@ -41,6 +41,9 @@ class ProductController extends BaseController
             if (empty($_POST['price'])) {
                 $errors[] = "Giá sản phẩm không được bỏ trống";
             }
+            if (empty($_POST['img_thumbnail'])) {
+                $errors[] = "ảnh sản phẩm không được bỏ trống";
+            }
             if (empty($_POST['category_id'])) {
                 $errors[] = "Vui lòng chọn danh mục";
             }
@@ -79,6 +82,9 @@ class ProductController extends BaseController
             }
             if (empty($_POST['price'])) {
                 $errors[] = "Giá sản phẩm không được bỏ trống";
+            }
+            if (empty($_POST['img_thumbnail'])) {
+                $errors[] = "ảnh sản phẩm không được bỏ trống";
             }
             if (empty($_POST['category_id'])) {
                 $errors[] = "Vui lòng chọn danh mục";
