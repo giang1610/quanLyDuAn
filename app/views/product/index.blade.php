@@ -35,6 +35,7 @@
             <td>{{$pr->category_name}}</td>
             <td>
                 <a href="{{route('detail-product/' . $pr->id)}}" class="btn btn-warning">Sửa</a>
+                <a href="{{route('detail-product/' . $pr->id)}}" class="btn btn-warning">show</a>
                 <a href="{{route('destroy/' . $pr->id)}}" onclick="return confirm('Bạn chắc chứ ?')" class="btn btn-danger" >Xóa</a>
             </td>
         </tr>
