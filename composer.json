@@ -4,7 +4,10 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "files": [
+            "./common/helpers.php"
+        ]
     },
     "require": {
         "phroute/phroute": "^2.2",

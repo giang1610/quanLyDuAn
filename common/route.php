@@ -7,33 +7,31 @@ $url = !isset($_GET['url']) ? "/" : $_GET['url'];
 $router = new RouteCollector();
 
 // filter check đăng nhập
-$router->filter('auth', function(){
-    if(!isset($_SESSION['auth']) || empty($_SESSION['auth'])){
-        header('location: ' . BASE_URL . 'login');die;
+$router->filter('auth', function () {
+    if (!isset($_SESSION['auth']) || empty($_SESSION['auth'])) {
+        header('location: ' . BASE_URL . 'login');
+        die;
     }
 });
 
 // khu vực cần quan tâm -----------
 // bắt đầu định nghĩa ra các đường dẫn
-$router->get('/', function(){
+$router->get('/', function () {
     return "trang chủ";
 });
-//định nghĩa đường dẫn trỏ đến Product Controller
 
-$router->get('list-product',[\App\Controllers\ProductController::class,'index']);
-$router->get('add-product',[\App\Controllers\ProductController::class,'addProduct']);
-$router->post('store-product',[\App\Controllers\ProductController::class,'store']);
-$router->get('detail-product/{id}',[\App\Controllers\ProductController::class,'detail']);
-$router->post('edit-product/{id}',[\App\Controllers\ProductController::class,'editProduct']);
-$router->get('destroy/{id}',[App\Controllers\ProductController::class, 'destroy']);
-// category Controller
-$router->get('list-category',[\App\Controllers\CategoryController::class,'indexCate']);
-$router->get('add-category',[\App\Controllers\CategoryController::class,'addCategory']);
-$router->post('store-category',[\App\Controllers\CategoryController::class,'storeCate']);
-$router->get('detail-category/{id}',[\App\Controllers\CategoryController::class,'detailCate']);
-$router->post('edit-category/{id}',[\App\Controllers\CategoryController::class,'editCategory']);
-$router->get('destroy-category/{id}',[\App\Controllers\CategoryController::class, 'destroyCate']);
-
+// route admin
+$router->group(['prefix' => 'admin'], function ($router) {
+    $router->get('/list-trip', [\App\Controllers\ChuyenDiController::class, 'index']);
+    $router->get('/add-trip', [\App\Controllers\ChuyenDiController::class, 'add']);
+    $router->get('/addSubmit-trip', [\App\Controllers\ChuyenDiController::class, 'addSubmit']);
+});
+// rout Đăng nhập đăng ký
+$router->get('/showRegister', [App\Controllers\AuthController::class, 'showRegister']);
+$router->post('/register', [App\Controllers\AuthController::class, 'register']);
+$router->get('/showLogin', [App\Controllers\AuthController::class, 'showLogin']);
+$router->post('/login', [App\Controllers\AuthController::class, 'login']);
+$router->get('/logout', [App\Controllers\AuthController::class, 'logout']);
 // khu vực cần quan tâm -----------
 //$router->get('test', [App\Controllers\ProductController::class, 'index']);
 

@@ -1,20 +1,22 @@
 <?php
 
-const DBNAME = "php2";
+const DBNAME = "travelbooking20251";
 const DBUSER = "root";
 const DBPASS = "";
 const DBHOST = "127.0.0.1";
 const DBCHARSET = "utf8";
 
-const BASE_URL = "http://localhost/PHP2/base_mvc%20(1)/";
+const BASE_URL = "http://localhost/QUANLYDUAN/";
 
-function route($url){
-    return BASE_URL.$url;
+function route($url)
+{
+    return BASE_URL . $url;
 }
 
-function flash($key, $msg, $route){
+function flash($key, $msg, $route)
+{
     $_SESSION[$key] = $msg;
-    switch ($key){
+    switch ($key) {
         case 'success':
             unset($_SESSION['errors']);
             break;
@@ -22,6 +24,6 @@ function flash($key, $msg, $route){
             unset($_SESSION['success']);
             break;
     }
-    header('location:'.BASE_URL.$route.'?msg='.$key);
+    header('location:' . BASE_URL . $route . '?msg=' . $key);
     die;
 }
