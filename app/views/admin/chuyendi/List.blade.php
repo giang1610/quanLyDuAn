@@ -1,4 +1,4 @@
-@extends('layouts.AdminLayout')
+@extends('admin.layouts.AdminLayout')
 
 @section('main')
     <div class="container">
@@ -29,13 +29,13 @@
                         <td>{{ $product['TrangThai'] }}</td>
                         <td>
                             <!-- <a href="{{ route('admin/products/' . $product['id'] . '/show') }}"
-                                        class="btn btn-info btn-sm">Xem</a>
-                                    <a href="{{ route('admin/products/' . $product['id'] . '/edit') }}"
-                                        class="btn btn-warning btn-sm">Sửa</a>
-                                    <form action="{{ route('admin/products/' . $product['id'] . '/delete') }}" method="POST"
-                                        class="d-inline" onsubmit="return confirm('Xóa sản phẩm ?')">
-                                        <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
-                                    </form> -->
+                                                                class="btn btn-info btn-sm">Xem</a>
+                                                            <a href="{{ route('admin/products/' . $product['id'] . '/edit') }}"
+                                                                class="btn btn-warning btn-sm">Sửa</a>
+                                                            <form action="{{ route('admin/products/' . $product['id'] . '/delete') }}" method="POST"
+                                                                class="d-inline" onsubmit="return confirm('Xóa sản phẩm ?')">
+                                                                <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                                                            </form> -->
                         </td>
                     </tr>
                 @endforeach

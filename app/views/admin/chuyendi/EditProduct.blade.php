@@ -1,9 +1,10 @@
-@extends('layouts.AdminLayout')
+@extends('admin.layouts.AdminLayout')
 
 @section('main')
     <div class="container">
         <h1 class="mt-4">Chỉnh sửa sản phẩm</h1>
-        <form action="{{ route('admin/products/' . $product['id'] . '/update') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin/products/' . $product['id'] . '/update') }}" method="POST"
+            enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="category_id" class="form-label">Danh mục:</label>
                 <select class="form-control" id="category_id" name="category_id" required>
@@ -32,7 +33,8 @@
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Mô tả:</label>
-                <textarea class="form-control" id="description" name="description" rows="4">{{ $product['description'] }}</textarea>
+                <textarea class="form-control" id="description" name="description"
+                    rows="4">{{ $product['description'] }}</textarea>
             </div>
             <button type="submit" class="btn btn-success">Cập nhật</button>
         </form>

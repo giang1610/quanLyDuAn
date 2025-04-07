@@ -6,14 +6,6 @@ $url = !isset($_GET['url']) ? "/" : $_GET['url'];
 
 $router = new RouteCollector();
 
-// filter check đăng nhập
-$router->filter('auth', function () {
-    if (!isset($_SESSION['auth']) || empty($_SESSION['auth'])) {
-        header('location: ' . BASE_URL . 'login');
-        die;
-    }
-});
-
 // khu vực cần quan tâm -----------
 // bắt đầu định nghĩa ra các đường dẫn
 $router->get('/', function () {
@@ -22,7 +14,7 @@ $router->get('/', function () {
 
 // route admin
 $router->group(['prefix' => 'admin'], function ($router) {
-    $router->get('/list-trip', [\App\Controllers\ChuyenDiController::class, 'index']);
+    $router->get('/', [\App\Controllers\ChuyenDiController::class, 'index']);
     $router->get('/add-trip', [\App\Controllers\ChuyenDiController::class, 'add']);
     $router->get('/addSubmit-trip', [\App\Controllers\ChuyenDiController::class, 'addSubmit']);
 });

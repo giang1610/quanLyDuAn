@@ -52,4 +52,4 @@
 <?php $this->startSection('css'); ?>
 
 <?php $this->stopSection(); ?>
-<?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.AdminLayout'); } ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('admin.layouts.AdminLayout'); } ?>

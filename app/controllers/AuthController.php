@@ -32,7 +32,7 @@ class AuthController extends BaseController
             $this->taikhoan->create(['HoTen' => $name, 'Email' => $email, 'SoDienThoai' => $phone, 'MatKhau' => $password]);
 
             // Điều hướng sang trang đăng nhập
-            redirect('/showLogin');
+            redirect('showLogin');
         }
     }
     public function showLogin()
@@ -51,7 +51,7 @@ class AuthController extends BaseController
             if ($user && password_verify($password, $user->MatKhau)) {
                 $_SESSION['user'] = $user;
                 if ($user->LoaiTaiKhoan == "admin") {
-                    redirect('admin/list-trip');
+                    redirect('admin');
                 } else {
                     redirect('');
                 }
@@ -63,6 +63,6 @@ class AuthController extends BaseController
     public function logout()
     {
         session_destroy();
-        redirect('/showLogin');
+        redirect('showLogin');
     }
 }

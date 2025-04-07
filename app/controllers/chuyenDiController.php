@@ -12,8 +12,13 @@ class ChuyenDiController extends BaseController
     }
     public function index()
     {
-        $list = $this->chuyendi->getData("SELECT * FROM chuyendi");
-        return $this->render('admin.chuyendi.List', compact('list'));
+        if (isset($_SESSION['user'])) {
+            $list = $this->chuyendi->getData("SELECT * FROM chuyendi");
+            return $this->render('admin.chuyendi.List', compact('list'));
+        } else {
+            return $this->render('client.auth.login');
+        }
+
     }
     public function add()
     {
